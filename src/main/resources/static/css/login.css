@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-size: cover;
+    background-image: url('../images/login-back.jpg');
+}
+
+/* 登录框开始 */
+.login-box{
+    width: 500px;
+    height: 270px;
+    border-radius: 4px;
+    margin: 300px auto 0 auto;
+    background-color: rgba(246, 246, 246, 0.7);
+    box-shadow: 0 0 2px 1px rgba(240, 240, 240, 0.8);
+}
+.login-box>span{
+    display: block;
+    height: 50px;
+    font-size: 25px;
+    padding-top: 30px;
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.input-box{
+    height: 50px;
+    text-align: center;
+}
+.input-box>input{
+    height: 32px;
+    width: 192px;
+    outline: none;
+    padding: 0 10px;
+    margin-top: 10px;
+    border-radius: 2px;
+    border: 1px solid #FFF;
+}
+.input-box>input:focus{
+    border: 1px solid #FF6600;
+}
+.input-box>input[type=text]{
+    padding-left: 32px;
+    background-size: 25px;
+    background-position-x: 4px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-image: url('../images/user-icon.png');
+}
+.input-box>input[type=password]{
+    padding-left: 32px;
+    background-size: 25px;
+    background-position-x: 4px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-image: url('../images/password-icon.png');
+}
+.login-button{
+    margin-top: 15px;
+    text-align: center;
+}
+.login-button>button{
+    width: 238px;
+    height: 28px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 2px;
+    background-color: #FF6600;
+}
+.login-button>button:hover{
+    background-color: #FF3300;
+}
+/* 登录框结束 */

@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.clean{
+    clear: both;
+}
+
+.title{
+    width: 995px;
+    margin: 60px auto 0 auto;
+}
+.title>span{
+    font-size: 18px;
+    padding-left: 8px;
+}
+.title>a{
+    position: relative;
+    display: block;
+    left: 90px;
+    height: 2px;
+    bottom: 12px;
+    width: 880px;
+    background-color: #33CCFF;
+}
+
+/* 显示用户区域开始 */
+.show-user-area{
+    position: relative;
+    height: 40px;
+    width: 1000px;
+    margin: 10px auto 0 auto;
+}
+.user-box{
+    position: absolute;
+    left: 20px;
+    font-size: 14px;
+}
+.user-box>span{
+    font-size: 14px;
+    line-height: 40px;
+}
+.logout-box{
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+}
+.logout-box>a{
+    display: inline-block;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+.logout-box>a:hover{
+    color: #FF0036;
+}
+.transcript-box{
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+}
+.transcript-box>a{
+    color: #666;
+    font-size: 15px;
+    line-height: 40px;
+    text-decoration: none;
+}
+.transcript-box>a:hover{
+    color: #FF0036;
+}
+/* 显示用户区域结束 */
+
+/* 正在作答试卷开始 */
+.processing{
+    position: relative;
+    height: 40px;
+    width: 900px;
+    padding: 0 20px;
+    margin-top: 20px;
+    border-radius: 2px;
+    margin:40px auto 0 auto;
+    background-color: #F7BA2A;
+}
+.processing>span{
+    color: #FFF;
+    line-height: 40px;
+}
+.processing>button{
+    position: absolute;
+    top: 7px;
+    right: 20px;
+    width: 90px;
+    height: 25px;
+    border: none;
+    color: #FFF;
+    outline: none;
+    cursor: pointer;
+    background-color: #1D8CE0;
+}
+/* 正在作答试卷结束 */
+
+/* 试卷区域开始 */
+.paper-area{
+    width: 995px;
+    margin: 20px auto 0 auto;
+}
+.paper-item{
+    float: left;
+    margin: 8px;
+    width: 230px;
+    height: 100px;
+    border-radius: 2px;
+    border: 1px solid #33CCFF;
+    background-color: rgb(228, 232, 255);
+}
+.paper-item:hover{
+    box-shadow: 0 0 6px 2px #EEE;
+}
+.paper-title{
+    display: block;
+    height: 30px;
+    margin: 0 10px;
+    padding: 0 10px;
+    font-size: 15px;
+    color: #FF0036;
+    margin-top: 10px;
+    font-weight: bold;
+    line-height: 30px;
+    border-bottom: 1px solid #33CCFF;
+}
+.paper-bottom{
+    height: 30px;
+    padding: 0 10px;
+    margin-top: 25px;
+}
+.paper-bottom>span{
+    display: block;
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+}
+.paper-bottom>button{
+    float: right;
+    width: 70px;
+    height: 25px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 2px;
+    border-radius: 2px;
+    background-color: #33CCFF;
+}
+.paper-bottom>button:hover{
+    background-color: #FF0036;
+}
+/* 试卷区域结束 */

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>评测结果</title>
+    <link rel="stylesheet" href="./css/result.css">
+</head>
+<body>
+    
+    <!-- 显示结果 -->
+    <div class="result-area">
+        <span>答题结果:<a th:text="${fraction}"></a>分</span>
+        <ul>
+            <li th:each="topic,status : ${topics}" th:data-status="${correctness.get(status.index)}" th:text="${status.index + 1}"></li>
+        </ul>
+
+        <!-- 清除浮动 -->
+        <div class="clean"></div>
+
+        <div class="result-number"><span>答题情况：<a th:text="${count}"></a>/<a th:text="${topics.size()}"></a><span>答对<a th:text="${correctCount}" style="color: #FF0036; padding: 0 5px;"></a>题</span></span></div>
+        <div class="back-index"><a href="/index">返回首页</a></div>
+    </div>
+    
+    <!-- 引入JS -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/result.js"></script>
+    
+</body>
+</html>

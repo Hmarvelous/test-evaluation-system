@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${'正在作答 - ' + paper.name}"></title>
+    <link rel="stylesheet" href="./css/answer.css">
+</head>
+<body>
+    
+
+    <div class="paper-title"><span>试卷题目</span></div>
+
+    <div class="answer-area">
+        <!-- 题目区域 -->
+        <div class="topic-area">
+            <div class="topic-title">
+                <span><a></a></span>
+            </div>
+            <div class="answer">
+                <ul>
+                </ul>
+            </div>
+            <div class="topic-switch">
+                <button class="previous disable">上一题</button>
+                <button class="next">下一题</button>
+            </div>
+        </div>
+
+        <!-- 答题卡区域 -->
+        <div class="answer-sheet-area">
+            <span>答题卡</span>
+            <ul>
+            	<li th:each="topic,status : ${topics}" th:text="${status.index + 1}" th:data-id="${topic.id}" th:data-number="${status.index + 1}"></li>
+            </ul>
+        </div>
+        <!-- 清除浮动 -->
+        <div class="clean"></div>
+    </div>
+
+
+    <!-- 引入JS -->
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/answer.js"></script>
+</body>
+</html>

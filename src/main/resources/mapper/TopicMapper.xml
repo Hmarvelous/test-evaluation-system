@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+	PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+	
+<mapper namespace="online.shixun.project.mapper.TopicMapper">
+
+	<resultMap type="TopicDto" id="topicMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="answer" property="answer"/>
+		<result column="data_flag" property="dataFlag"/>
+	</resultMap>
+	<!-- 根据试卷ID查询试卷的全部试题 -->
+	<select id="selectTopicsByPaperId" resultMap="topicMap">
+		SELECT
+			et.id,
+			et.name,
+			et.answer,
+			et.data_flag
+		FROM
+			e_paper ep
+		INNER JOIN
+			e_paper_topic ept
+		ON
+			ep.id=ept.paper_id
+		INNER JOIN
+			e_topic et
+		ON
+			et.id=ept.topic_id
+		WHERE
+			ep.id=#{paperId}
+		AND
+			et.data_flag=1
+		ORDER BY et.index
+	</select>
+	
+	<!-- 根据试卷ID查询试题数量 -->
+	<select id="selectTopicCountByPaperId" resultType="long">
+		SELECT
+			COUNT(et.id)
+		FROM
+			e_paper ep
+		INNER JOIN
+			e_paper_topic ept
+		ON
+			ep.id=ept.paper_id
+		INNER JOIN
+			e_topic et
+		ON
+			et.id=ept.topic_id
+		WHERE
+			ep.id=#{paperId}
+		AND
+			et.data_flag=1
+	</select>
+	
+	<!-- 根据试卷ID与题目ID查询题目信息 -->
+	<select id="selectTopicByPaperIdAndTopicId" resultMap="topicMap">
+		SELECT
+			et.id,
+			et.name,
+			et.answer,
+			et.data_flag
+		FROM
+			e_paper ep
+		INNER JOIN
+			e_paper_topic ept
+		ON
+			ep.id=ept.paper_id
+		INNER JOIN
+			e_topic et
+		ON
+			et.id=ept.topic_id
+		WHERE
+			ep.id=#{paperId}
+		AND
+			et.data_flag=1
+		LIMIT
+			#{start}, #{size}
+	</select>
+
+</mapper>

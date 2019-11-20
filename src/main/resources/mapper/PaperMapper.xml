@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+	PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+	
+<mapper namespace="online.shixun.project.mapper.PaperMapper">
+	
+	<resultMap type="PaperDto" id="paperMap">
+		<id column="paper_id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="data_flag" property="dataFlag"/>
+		<result column="count" property="count"/>
+	</resultMap>
+	<!-- 获取全部试卷 -->
+	<select id="selectAllPapers" resultMap="paperMap">
+		SELECT
+			ep.id AS paper_id,
+			ep.name AS name,
+			ep.data_flag AS data_flag,
+			COUNT(ept.topic_id) AS count
+		FROM
+			e_paper ep
+		INNER JOIN
+			e_paper_topic ept
+		ON
+			ep.id=ept.paper_id
+		WHERE
+			ep.data_flag=1
+		GROUP BY
+			ep.id,
+			ep.name,
+			ep.data_flag
+	</select>
+	
+	<!-- 根据试卷ID查询试卷信息 -->
+	<select id="selectPaperById" resultMap="paperMap">
+		SELECT
+			ep.id AS paper_id,
+			ep.name AS name,
+			ep.data_flag AS data_flag,
+			COUNT(ept.topic_id) AS count
+		FROM
+			e_paper ep
+		INNER JOIN
+			e_paper_topic ept
+		ON
+			ep.id=ept.paper_id
+		WHERE
+			ep.data_flag=1
+		AND
+			ep.id=#{id}
+		GROUP BY
+			ep.id,
+			ep.name,
+			ep.data_flag
+	</select>
+	
+</mapper>

@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* 头部开始 */
+.head-box{
+    height: 40px;
+    width: 1000px;
+    margin: 40px auto 0 auto;
+    border-bottom: 2px solid #1E9FFF;
+}
+.head-box>a{
+    color: #666;
+    font-size: 14px;
+    line-height: 40px;
+    padding-left: 24px;
+    text-decoration: none;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-image: url('../images/home-icon.png');
+}
+.head-box>a:hover{
+    color: #1E9FFF;
+    background-image: url('../images/home-hover-icon.png');
+}
+/* 头部结束 */
+
+
+/* 成绩单表格开始 */
+.table-box{
+    width: 1000px;
+    margin: 30px auto 0 auto;
+}
+.table-box>table{
+    border: 1px solid #CCC;
+}
+.table-box>table th{
+    height: 40px;
+    font-size: 15px;
+    font-weight: normal;
+    background-color: #EEE;
+}
+.table-box>table th:first-child{
+    width: 60px;
+}
+.table-box>table th:nth-child(2){
+    width: 520px;
+}
+.table-box>table th:nth-child(3){
+    width: 80px;
+}
+.table-box>table th:nth-child(4){
+    width: 200px;
+}
+.table-box>table th:last-child{
+    width: 140px;
+}
+.table-box>table td{
+    height: 45px;
+    font-size: 14px;
+}
+.table-box>table td:first-child, .table-box>table td:nth-child(3), .table-box>table td:nth-child(4), .table-box>table td:last-child{
+    text-align: center;
+}
+.table-box>table td:nth-child(2){
+    padding-left: 20px;
+}
+.table-box>table td:last-child>button{
+    width: 60px;
+    border: none;
+    height: 25px;
+    margin: 0 5px;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.view-button{
+    background-color: #1E9FFF;
+}
+.delete-button{
+    background-color: #FF5722;
+}
+/* 成绩单表格结束 */
+
+.no-data{
+    margin: 20px 0;
+    text-align: center;
+}
+.no-data>span{
+    color: #999;
+    font-size: 20px;
+}
+
+/* 分页区域开始 */
+.pagination-box{
+    height: 40px;
+    width: 1000px;
+    text-align: center;
+    margin: 30px auto 0 auto;
+}
+.pagination-box>div{
+    display: inline-block;
+}
+.pagination-box>div>ul{
+    list-style: none;
+}
+.pagination-box>div>ul>li{
+    float: left;
+    height: 28px;
+    margin: 0 2px;
+    cursor: pointer;
+    padding: 0 15px;
+    line-height: 28px;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+}
+.pagination-box>div>ul>li:hover{
+    background-color: #1E9FFF;
+    border: 1px solid #1E9FFF;
+}
+.pagination-box>div>ul>li:hover{
+    color: #FFF;
+}
+.pagination-disable{
+    color: #CCC !important;
+    cursor: no-drop !important;
+    background-color: #FFF !important;
+}
+.pagination-disable:hover{
+    border: 1px solid #CCC !important;
+    background-color: #FFF !important;
+}
+.pagination-selected{
+    color: #FFF !important;
+    background-color: #1E9FFF !important;
+    border: 1px solid #1E9FFF !important;
+}
+/* 分页区域结束 */

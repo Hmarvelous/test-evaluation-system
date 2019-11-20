@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+	PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+	
+<mapper namespace="online.shixun.project.mapper.UserMapper">
+	
+	<resultMap type="UserDto" id="userMap">
+		<id column="user_id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="data_flag" property="dataFlag"/>
+	</resultMap>
+	
+	<!-- 通过用户名查询用户信息 -->
+	<select id="selectUserByUsername" resultMap="userMap">
+		SELECT
+			eu.id AS user_id,
+			eu.username AS username,
+			eu.password AS password,
+			eu.data_flag AS data_flag
+		FROM
+			e_user eu
+		WHERE
+			eu.data_flag=1
+		AND
+			eu.username=#{username}
+	</select>
+	
+</mapper>

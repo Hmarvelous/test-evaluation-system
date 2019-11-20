@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>成绩单</title>
+    <link rel="stylesheet" th:href="@{/css/transcript.css}">
+</head>
+<body>
+    
+    <!-- 头部 -->
+    <div class="head-box">
+        <a th:href="@{/index}">返回首页</a>
+    </div>
+
+
+    <!-- 成绩单表格 -->
+    <div class="table-box">
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <th>编号</th>
+                <th>试卷名称</th>
+                <th>分数</th>
+                <th>交卷时间</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="transcript,status : ${transcriptPage.list}" th:data-transcript-id="${transcript.id}">
+                <td th:text="${status.index + 1}"></td>
+                <td th:text="${transcript.paper.name}"></td>
+                <td th:text="${transcript.fraction}"></td>
+                <td th:text="${transcript.dateString}"></td>
+                <td><button class="view-button">查看</button><button class="delete-button" th:data-transcript-id="${transcript.id}">删除</button></td>
+            </tr>
+        </table>
+    </div>
+
+	
+	<div th:if="${transcriptPage.list.size() <= 0}" class="no-data">
+        <span>暂无成绩单</span>
+    </div>
+
+
+    <!-- 分页区域 -->
+    <div class="pagination-box">
+        <div>
+            <ul th:if="${transcriptPage.list.size() > 0}">
+                <li th:class="${transcriptPage.hasPreviousPage} ? '' : 'pagination-disable'" th:data-page="${transcriptPage.prePage}">上一页</li>
+                <li th:each="page : ${transcriptPage.navigatepageNums}" th:class="${page == transcriptPage.pageNum} ? 'pagination-selected' : ''" th:data-page="${page}" th:text="${page}"></li>
+                <li th:class="${transcriptPage.hasNextPage} ? '' : 'pagination-disable'" th:data-page="${transcriptPage.nextPage}">下一页</li>
+            </ul>
+        </div>
+    </div>
+
+
+	<!-- 引入JS -->
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <script th:src="@{/js/transcript.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf/org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    
+    <!-- 显示用户区域 -->
+    <div class="show-user-area">
+        <div class="user-box">当前用户：<span th:text="${username}"></span></div>
+        <div class="transcript-box"><a th:href="@{/transcript}">成绩单</a></div>
+        <div class="logout-box"><a th:href="@{/logout}">注销</a></div>
+    </div>
+    
+    <div class="title"><span>试卷列表</span><a></a></div>
+
+    <!-- 试卷区域 -->
+    <div class="paper-area">
+
+        <!-- 清除浮动 -->
+        <div class="clean"></div>
+    </div>
+
+    
+    <!-- 引入JS -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

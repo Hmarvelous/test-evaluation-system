@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+	PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+	
+<mapper namespace="online.shixun.project.mapper.TranscriptMapper">
+
+	<resultMap type="TranscriptDto" id="transcriptMap">
+		<id column="transcript_id" property="id"/>
+		<result column="answers" property="answers"/>
+		<result column="fraction" property="fraction"/>
+		<result column="date" property="date"/>
+		<association property="paper" javaType="PaperDto" resultMap="online.shixun.project.mapper.PaperMapper.paperMap"/>
+		<association property="user" javaType="UserDto" resultMap="online.shixun.project.mapper.UserMapper.userMap"/>
+	</resultMap>
+
+	<!-- 添加成绩单 -->
+	<insert id="insertTranscript">
+		INSERT INTO
+			e_transcript(paper_id,user_id,answers,fraction,date)
+		VALUES
+			(#{transcript.paper.id},#{transcript.user.id},#{transcript.answers},#{transcript.fraction},#{transcript.date})
+	</insert>
+
+	<!-- 根据用户名获取全部成绩单 -->
+	<select id="selectAllTranscriptByUsername" resultMap="transcriptMap">
+		SELECT
+			et.id AS transcript_id,
+			et.paper_id AS paper_id,
+			et.user_id AS user_id,
+			et.answers AS answers,
+			et.fraction AS fraction,
+			et.date AS date,
+			ep.name AS name,
+			eu.username AS username
+		FROM
+			e_transcript et
+		INNER JOIN
+			e_paper ep
+		ON
+			et.paper_id=ep.id
+		INNER JOIN
+			e_user eu
+		ON
+			et.user_id=eu.id
+		WHERE
+			ep.data_flag=1
+		AND
+			eu.data_flag=1
+		AND
+			et.data_flag=1
+	</select>
+
+	<!-- 根据成绩单ID删除成绩单 -->
+	<update id="deleteTranscriptById">
+		UPDATE
+			e_transcript et
+		SET
+			et.data_flag=0
+		WHERE
+			et.id=${id}
+	</update>
+
+</mapper>

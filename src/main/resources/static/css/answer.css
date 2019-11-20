@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.clean{
+    clear: both;
+}
+
+.paper-title{
+    width: 1000px;
+    margin: 70px auto 0 auto;
+}
+.paper-title>span{
+    font-size: 20px;
+}
+.answer-area{
+    width: 1000px;
+    margin: 20px auto 0 auto;
+}
+
+
+/* 题目区域开始 */
+.topic-area{
+    float: left;
+    width: 670px;
+    height: 280px;
+    padding: 10px;
+    position: relative;
+    border: 1px solid #EEE;
+}
+.topic-title{
+    font-size: 17px;
+}
+.topic-title>span{
+    font-size: 15px;
+    line-height: 30px;
+}
+.topic-title>span>a{
+    padding-right: 5px;
+}
+.answer>ul{
+    margin-top: 20px;
+    list-style: none;
+}
+.answer>ul>li{
+    height: 35px;
+    line-height: 35px;
+    padding-left: 15px;
+}
+.answer>ul>li>input{
+    margin-right: 7px;
+}
+.answer>ul>li>a{
+    display: inline-block;
+    width: 20px;
+}
+.topic-switch{
+    position: absolute;
+    bottom: 10px;
+    height: 30px;
+    width: 670px;
+}
+.topic-switch>button{
+    width: 100px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #CCC;
+    background-color: #FFF;
+}
+.topic-switch>button:hover{
+    color: #FFF;
+    background-color: #01AAED;
+}
+.previous{
+    float: left;
+}
+.next{
+    float: right;
+}
+.disable{
+    opacity: 0.6;
+    cursor: not-allowed !important;
+}
+.disable:hover{
+    color: #000 !important;
+    background-color: #FFF !important;
+}
+.being{
+    border: 1px solid #1E9FFF !important;
+}
+.submit{
+    float: right;
+    color: #FFF;
+    border: none !important;
+    background-color: #FF0036 !important;
+}
+/* 题目区域结束 */
+
+
+/* 答题卡区域开始 */
+.answer-sheet-area{
+    float: right;
+    width: 280px;
+    height: 280px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+}
+.answer-sheet-area>span{
+    display: block;
+}
+.answer-sheet-area>ul{
+    margin-top: 20px;
+    list-style: none;
+}
+.answer-sheet-area>ul>li{
+    float: left;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    margin: 3px 3px;
+    color: #0099FF;
+    line-height: 40px;
+    border-radius: 2px;
+    text-align: center;
+    border: 1px solid #EEE;
+}
+.answered{
+    color: #FFF !important;
+    border: 1px solid FFF !important;
+    background-color: #5FB878 !important;
+}
+.not-answered{
+    color: #FFF !important;
+    color: #FFF !important;
+    background-color: #FF0036 !important;
+}
+/* 答题卡区域结束 */
